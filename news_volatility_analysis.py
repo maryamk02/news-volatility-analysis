@@ -2,7 +2,7 @@
 News Event Impact on Stock Volatility Analysis
 Inspired by Permutable AI's LLM-driven news analytics
 
-This script analyzes how major news events affect stock price volatility
+This script analyses how major news events affect stock price volatility
 by comparing volatility in windows before and after significant announcements.
 """
 
@@ -92,18 +92,18 @@ def calculate_event_volatility(stock_data, event_date, window=5):
     return before_vol, after_vol
 
 # ============================================================================
-# STEP 4: Analyze All Events
+# STEP 4: Analyse All Events
 # ============================================================================
 
-def analyze_all_events(events_dict):
-    """Analyze volatility changes for all events across all tickers"""
+def analyse_all_events(events_dict):
+    """Analyse volatility changes for all events across all tickers"""
     results = []
     
     for ticker, events in events_dict.items():
         # Get stock data
         stock_data = get_stock_data(ticker)
         
-        print(f"\nAnalyzing {ticker} events:")
+        print(f"\nAnalysing {ticker} events:")
         
         for event_name, event_date in events.items():
             # Calculate volatility
@@ -132,10 +132,10 @@ def analyze_all_events(events_dict):
     return pd.DataFrame(results)
 
 # ============================================================================
-# STEP 5: Create Visualizations
+# STEP 5: Create Visualisations
 # ============================================================================
 
-def create_visualizations(results_df):
+def create_visualisations(results_df):
     """Create charts showing volatility impact"""
     
     # Chart 1: Volatility change by event
@@ -194,7 +194,7 @@ def print_summary_stats(results_df):
     print("SUMMARY STATISTICS")
     print("="*70 + "\n")
     
-    print(f"Total events analyzed: {len(results_df)}\n")
+    print(f"Total events analysed: {len(results_df)}\n")
     
     print(f"Average volatility change: {results_df['Volatility_Change_Pct'].mean():+.1f}%")
     print(f"Median volatility change: {results_df['Volatility_Change_Pct'].median():+.1f}%\n")
@@ -230,14 +230,14 @@ if __name__ == "__main__":
     print("="*70)
     
     # Run analysis
-    results_df = analyze_all_events(events_data)
+    results_df = analyse_all_events(events_data)
     
     # Save results
     results_df.to_csv('volatility_results.csv', index=False)
     print("\n✓ Saved: volatility_results.csv")
     
     # Create visualizations
-    create_visualizations(results_df)
+    create_visualisations(results_df)
     
     # Print summary
     print_summary_stats(results_df)
