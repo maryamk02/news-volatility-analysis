@@ -236,7 +236,7 @@ if __name__ == "__main__":
     results_df.to_csv('volatility_results.csv', index=False)
     print("\n✓ Saved: volatility_results.csv")
     
-    # Create visualizations
+    # Create visualisations
     create_visualisations(results_df)
     
     # Print summary
